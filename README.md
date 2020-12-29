@@ -13,9 +13,6 @@ Pourquoi ?
 Une seule marque présente sur le marché &amp; dispositif très cher &gt; 149 (pour une puce GPS et wifi)
 Les racers sont souvent déjà équipés de GPS =&gt; inutile d'en porter deux.
 
-
-
-
 Proofs of concept.
 J'ai commandé des esp32 et esp8266 de plusieurs modèles.
 Pistes de modèles(besoin d'un régulateur 5v) et plus petit possible :
