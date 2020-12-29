@@ -1,0 +1,68 @@
+Article 2
+
+I. - La transmission des données mentionnées à l'article R. 20-29-2 du code des postes et des communications électroniques présente les caractéristiques suivantes :
+1° Le message de signalement est constitué d'une trame wifi unique ;
+2° Le message de signalement n'est pas chiffré ;
+3° La référence du système géodésique est EPSG 4326. Les coordonnées sont transmises en “degrés/décimales de degrés” :
+
+
+- les latitudes transmises sont incluses dans l'intervalle [- 90° ; + 90°]
+- les longitudes transmises sont incluses dans l'intervalle]- 180° (exclus) ; + 180° (inclus)].
+
+
+4° La route transmise, route vraie, prend comme référence le nord géographique ;
+5° Les données sont transmises en unités respectant le Système International :
+
+
+- vitesse en mètres par seconde,
+- position verticale en mètres.
+
+
+6° Le système de codage de transmission est UTF-8 ;
+7° Les données sont transmises en utilisant le mécanisme TLV (Type Length Value) et correspondent aux types définis dans le tableau des types porté en annexe du présent arrêté.
+8° La base temporelle est UTC+00/00 ;
+9° L'émission du message de signalement s'effectue dès le décollage de l'aéronef circulant sans personne à bord jusqu'à l'atterrissage de celui-ci et de manière périodique selon l'un ou l'autre des deux processus suivants :
+
+
+- soit sur un canal Wifi quelconque de la bande 2400 à 2483,5 Mhz et conformément au standard d'émission des trames beacon tel que défini par le standard IEEE 802.11 (100 TU), à la condition que le système de signalement soit natif de l'aéronef circulant sans personne à bord et soit coordonné avec le système de commande et de contrôle de ce dernier ;
+- soit sur le canal Wifi numéro 6 au premier des termes temporels ou spatiaux échus suivants :
+- 2 envois sont séparés d'au plus 3 secondes ;
+- 2 envois sont séparés d'au plus 30 mètres.
+
+
+10° La puissance d'émission du dispositif de signalement électronique ou numérique mentionné à l'alinéa premier de l'article L. 34-9-2 et à l'article R. 20-29-2 du code des postes et des communications électroniques respecte les conditions techniques d'utilisation de la fréquence fixées par l'autorité de régulation des communications électroniques et des postes selon les dispositions prévues par les articles L. 33-3, L. 36-6 et L. 42 du code des postes et des communications électroniques.
+11° La puissance d'émission du dispositif de signalement électronique ou numérique mentionné à l'alinéa premier de l'article L. 34-9-2 et à l'article R. 20-29-2 du code des postes et des communications électroniques correspond au maximum de la puissance autorisée par décision de l'autorité de régulation des communications électroniques et des postes pour la bande 2400 à 2483,5 Mhz.
+12° Le dispositif de signalement électronique ou numérique mentionné à l'alinéa premier de l'article L. 34-9-2 et à l'article R. 20-29-2 du code des postes et des communications électroniques émet le signal de manière omnidirectionnelle.
+II. - Le format de transmission des données mentionnées à l'article R. 20-29-4 du code des postes et des communications électroniques est conforme aux spécifications suivantes :
+1° Le protocole de transmission est conforme à la norme IEEE 802.11 [dans la version publiée à la date de parution du présent arrêté (IEEE 802.11-2016).]
+a) La trame Wifi 802.11 est de type 0 (paquet de gestion) et de sous-type 8 ;
+b) La bande de fréquence utilisée est la bande Wifi 2400 à 2483,5 Mhz. Les canaux Wifi utilisés sont ceux en vigueur en France ; la largeur de ces canaux est de 20 Mhz. Une largeur de canal de 5 ou 10 Mhz est admise dans le cadre d'une émission conforme au standard d'émission des trames beacon tel que défini par le standard IEEE 802.11 (100 TU) à la condition que le principe de modulation reste celui de l'OFDM et que la division de la largeur du canal (initialement 20 Mhz) ne soit due qu'à la division de la clock respectivement par 4 (cas de la largeur de canal de 5 Mhz) ou 2 (cas de la largeur de canal de 10 Mhz) ;
+c) Le message de signalement prend place dans la partie charge utile (payload - vendor specific) de la trame Wifi 802.11 décrite en annexe. Le message correspond à une trame Wifi 802.11 transitant sur un réseau sans fil. Le numéro CID suivant est utilisé : 6A-5C-35.
+2 ° Le format de la charge utile est défini comme suit et respecte l'ordre fixé :
+a) Le numéro de version de protocole codé sur 1 octet et correspondant au type 01 du tableau des types porté en annexe. Pour l'application des exigences du présent arrêté, sa valeur est fixée à 1.
+b) L'identifiant unique de l'aéronef sans personne à bord, établi conformément à l'une ou l'autre des deux possibilités décrites ci-dessous, l'utilisation de la norme ANSI/CTA/2063 (numéro de série physique - PSN) pour définir l'identifiant de l'aéronef sans personne à bord étant réputée satisfaire aux exigences du présent arrêté :
+i. soit un identifiant unique codé sur 30 octets et correspondant au type 02 du tableau des types porté en annexe, composé des trois champs suivants :
+
+
+- le trigramme constructeur est codé sur 3 octets ;
+- le modèle de l'aéronef (pour un aéronef circulant sans personne à bord comportant un système de signalement électronique ou numérique intégré) ou le modèle du dispositif de signalement électronique ou numérique (pour un système de signalement électronique ou numérique non intégré) codé sur 3 octets ;
+- le numéro de série de l'aéronef (pour un aéronef circulant sans personne à bord comportant un système de signalement électronique ou numérique intégré) ou le numéro de série du dispositif de signalement électronique ou numérique (pour un système de signalement électronique ou numérique non intégré) codé sur 24 octets. Dans le cas où le numéro de série comporte moins de 24 caractères, des 0 seront ajoutés en amont de celui-ci ;
+
+
+Cet identifiant unique ne doit comporter aucun signe espace. En outre, l'unicité de cet identifiant ne pourra être obtenue en prenant en compte la sensibilité à la casse pour discriminer deux identifiants uniques différents.
+ii. soit un identifiant unique conforme à la norme ANSI/CTA/2063 (numéro de série physique - PSN) et correspondant au type 03 du tableau des types porté en annexe.
+c) La position de l'aéronef sans personne à bord au moment de l'envoi du message codée sur 10 octets, composée des champs suivants :
+i. latitude codée sur 4 octets correspondant au type 04 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+ii. longitude codée sur 4 octets correspondant au type 05 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+iii. la position verticale de l'aéronef circulant sans personne à bord, codée sur 2 octets et signée selon les méthodes de calcul indiquées en annexe, est exprimée en mètres et correspond à l'une ou l'autre des deux informations ci-dessous :
+
+
+- soit son altitude au-dessus du niveau moyen de la mer, altitude absolue, correspondant au type 06 du tableau des types porté en annexe,
+- soit sa hauteur par rapport à son point de décollage ou à la position du télépilote correspondant au type 07 du tableau des types porté en annexe.
+
+
+d) La position du point de décollage de l'aéronef sans personne à bord codée sur 8 octets, composée des champs suivants :
+i. latitude codée sur 4 octets correspondant au type 08 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+ii. longitude codée sur 4 octets correspondant au type 09 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe.
+e) La vitesse sol horizontale codée sur 1 octet correspondant au type 10 du tableau des types porté en annexe ; en mètres par seconde ;
+f) La route codée sur 2 octets correspondant au type 11 du tableau des types porté en annexe ; en degrés de 0° à 359°.
