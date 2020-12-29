@@ -1,0 +1,8 @@
+a) La trame Wifi 802.11 est de type 0 (paquet de gestion) et de sous-type 8 ;
+b) La bande de fréquence utilisée est la bande Wifi 2400 à 2483,5 Mhz. Les canaux Wifi utilisés sont ceux en vigueur en France ; la largeur de ces canaux est de 20 Mhz. Une largeur de canal de 5 ou 10 Mhz est admise dans le cadre d'une émission conforme au standard d'émission des trames beacon tel que défini par le standard IEEE 802.11 (100 TU) à la condition que le principe de modulation reste celui de l'OFDM et que la division de la largeur du canal (initialement 20 Mhz) ne soit due qu'à la division de la clock respectivement par 4 (cas de la largeur de canal de 5 Mhz) ou 2 (cas de la largeur de canal de 10 Mhz) ;
+c) Le message de signalement prend place dans la partie charge utile (payload - vendor specific) de la trame Wifi 802.11 décrite en annexe. Le message correspond à une trame Wifi 802.11 transitant sur un réseau sans fil. Le numéro CID suivant est utilisé : 6A-5C-35.
+
+
+Infos importantes:
+-Wifi Canal 6 ofdm (6mbps mcs0 802.11g) bandwidth(20, 10 ou 5)
+-Trame Beacon

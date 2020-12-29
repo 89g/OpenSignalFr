@@ -1,0 +1,31 @@
+c) Le message de signalement prend place dans la partie charge utile (payload - vendor specific) de la trame Wifi 802.11 décrite en annexe. Le message correspond à une trame Wifi 802.11 transitant sur un réseau sans fil. Le numéro CID suivant est utilisé : 6A-5C-35.
+2 ° Le format de la charge utile est défini comme suit et respecte l'ordre fixé :
+a) Le numéro de version de protocole codé sur 1 octet et correspondant au type 01 du tableau des types porté en annexe. Pour l'application des exigences du présent arrêté, sa valeur est fixée à 1.
+b) L'identifiant unique de l'aéronef sans personne à bord, établi conformément à l'une ou l'autre des deux possibilités décrites ci-dessous, l'utilisation de la norme ANSI/CTA/2063 (numéro de série physique - PSN) pour définir l'identifiant de l'aéronef sans personne à bord étant réputée satisfaire aux exigences du présent arrêté :
+i. soit un identifiant unique codé sur 30 octets et correspondant au type 02 du tableau des types porté en annexe, composé des trois champs suivants :
+
+
+- le trigramme constructeur est codé sur 3 octets ;
+- le modèle de l'aéronef (pour un aéronef circulant sans personne à bord comportant un système de signalement électronique ou numérique intégré) ou le modèle du dispositif de signalement électronique ou numérique (pour un système de signalement électronique ou numérique non intégré) codé sur 3 octets ;
+- le numéro de série de l'aéronef (pour un aéronef circulant sans personne à bord comportant un système de signalement électronique ou numérique intégré) ou le numéro de série du dispositif de signalement électronique ou numérique (pour un système de signalement électronique ou numérique non intégré) codé sur 24 octets. Dans le cas où le numéro de série comporte moins de 24 caractères, des 0 seront ajoutés en amont de celui-ci ;
+
+
+Cet identifiant unique ne doit comporter aucun signe espace. En outre, l'unicité de cet identifiant ne pourra être obtenue en prenant en compte la sensibilité à la casse pour discriminer deux identifiants uniques différents.
+ii. soit un identifiant unique conforme à la norme ANSI/CTA/2063 (numéro de série physique - PSN) et correspondant au type 03 du tableau des types porté en annexe.
+c) La position de l'aéronef sans personne à bord au moment de l'envoi du message codée sur 10 octets, composée des champs suivants :
+i. latitude codée sur 4 octets correspondant au type 04 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+ii. longitude codée sur 4 octets correspondant au type 05 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+iii. la position verticale de l'aéronef circulant sans personne à bord, codée sur 2 octets et signée selon les méthodes de calcul indiquées en annexe, est exprimée en mètres et correspond à l'une ou l'autre des deux informations ci-dessous :
+
+
+- soit son altitude au-dessus du niveau moyen de la mer, altitude absolue, correspondant au type 06 du tableau des types porté en annexe,
+- soit sa hauteur par rapport à son point de décollage ou à la position du télépilote correspondant au type 07 du tableau des types porté en annexe.
+
+
+d) La position du point de décollage de l'aéronef sans personne à bord codée sur 8 octets, composée des champs suivants :
+i. latitude codée sur 4 octets correspondant au type 08 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe ;
+ii. longitude codée sur 4 octets correspondant au type 09 du tableau des types porté en annexe ; l'information est codée selon les méthodes de calcul indiquées en annexe.
+e) La vitesse sol horizontale codée sur 1 octet correspondant au type 10 du tableau des types porté en annexe ; en mètres par seconde ;
+f) La route codée sur 2 octets correspondant au type 11 du tableau des types porté en annexe ; en degrés de 0° à 359°.
+
+
